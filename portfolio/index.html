@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Srishti Shree Nidhi | ML and Full-Stack Engineer</title>
+<meta name="description" content="Portfolio of Srishti Shree Nidhi, a final-year computer science student in Bengaluru who builds full-stack and AI/ML applications: LLM agents, computer vision and NLP pipelines.">
+<meta name="theme-color" content="#f1f4f2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317252a'/%3E%3Crect x='14' y='14' width='36' height='36' fill='none' stroke='%232dd4bf' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f1f4f2;
+  --ink: #17252a;
+  --muted: #55666b;
+  --line: #cbd5d3;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --wrap: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 0.6rem 1rem; z-index: 10; }
+.skip:focus { left: 0.5rem; top: 0.5rem; }
+
+/* header */
+.top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 2rem; padding: 1.5rem 0; }
+.top .id { font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+.top nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; font-family: var(--display); font-weight: 500; font-size: 0.95rem; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--accent); }
+
+/* hero */
+.hero { padding: 5rem 0 6rem; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.35rem, 6.4vw, 4.8rem);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+}
+.hero .lede { max-width: 38rem; font-size: 1.2rem; margin: 0 0 2rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; font-family: var(--display); font-weight: 500; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.25rem; background: var(--ink); color: #fff;
+  text-decoration: none; border-radius: 4px; font-weight: 700;
+}
+.btn:hover { background: var(--accent); color: var(--accent-ink); }
+
+/* the one memorable moment: detection boxes drawn around two phrases */
+.box { position: relative; display: inline-block; padding: 0 0.14em; margin: 0 -0.02em; }
+.box::before {
+  content: ""; position: absolute; inset: 0.14em -0.02em 0.06em;
+  border: 2.5px solid var(--accent); pointer-events: none;
+}
+.box::after {
+  content: attr(data-label); position: absolute; left: -0.02em; bottom: calc(100% - 0.14em);
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--display); font-weight: 700; font-size: 0.7rem; line-height: 1;
+  letter-spacing: 0; padding: 0.3rem 0.45rem; white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .box::before { animation: draw 0.9s cubic-bezier(.6, 0, .2, 1) 0.35s both; }
+  .box::after { animation: tag 0.3s ease-out 1s both; }
+  .box.second::before { animation-delay: 0.75s; }
+  .box.second::after { animation-delay: 1.4s; }
+  @keyframes draw { from { clip-path: inset(0 100% 100% 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes tag { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* sections */
+.block { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem 3rem; padding: 4rem 0; border-top: 1px solid var(--line); }
+.block > h2 { font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+.block > .body { max-width: 44rem; min-width: 0; }
+
+/* projects */
+.project { padding: 0 0 2.75rem; }
+.project + .project { padding-top: 2.75rem; border-top: 1px solid var(--line); }
+.project.lead { border-left: 4px solid var(--accent); padding-left: 1.5rem; }
+.project + .project.lead { border-top: 0; }
+.project header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; }
+.project h3 { font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.25; margin: 0; letter-spacing: -0.01em; }
+.dates { font-family: var(--display); font-size: 0.9rem; color: var(--muted); }
+.project p { margin: 0.5rem 0 0; }
+.stack { color: var(--muted); font-size: 0.97rem; }
+.project details { margin-top: 0.9rem; }
+.project summary { cursor: pointer; font-family: var(--display); font-weight: 700; font-size: 0.95rem; width: max-content; }
+.project summary:hover { color: var(--accent); }
+.project ul { margin: 0.75rem 0 0; padding-left: 1.2rem; }
+.project li { margin: 0.5rem 0; padding-left: 0.2rem; }
+.project .src { margin-top: 1rem; font-family: var(--display); font-weight: 500; font-size: 0.95rem; }
+
+/* experience, education */
+.entry h3 { font-family: var(--display); font-weight: 700; font-size: 1.2rem; margin: 0; line-height: 1.3; }
+.entry .where { margin: 0.1rem 0 0; color: var(--muted); }
+.entry ul { margin: 0.75rem 0 0; padding-left: 1.2rem; }
+.entry li { margin: 0.5rem 0; }
+.entry + .entry { margin-top: 1.75rem; }
+
+/* skills */
+.skills { margin: 0; display: grid; grid-template-columns: 11rem 1fr; gap: 0.9rem 1.5rem; }
+.skills dt { font-family: var(--display); font-weight: 700; font-size: 0.97rem; line-height: 1.7; }
+.skills dd { margin: 0; }
+
+.plain { margin: 0; padding-left: 1.2rem; }
+.plain li { margin: 0.5rem 0; }
+
+/* contact */
+.mail { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 4.2vw, 2.3rem); letter-spacing: -0.015em; line-height: 1.25; word-break: break-word; }
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 1.25rem 0 0; padding: 0; list-style: none; font-family: var(--display); font-weight: 500; }
+
+footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
+
+@media (max-width: 760px) {
+  .hero { padding: 3rem 0 4rem; }
+  .hero h1 { line-height: 1.8; }
+  .block { grid-template-columns: 1fr; gap: 1rem; padding: 3rem 0; }
+  .skills { grid-template-columns: 1fr; gap: 0.1rem 0; }
+  .skills dd { margin-bottom: 0.9rem; }
+  .project.lead { padding-left: 1rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+
+<div class="wrap">
+  <header class="top">
+    <a class="id" href="#top">Srishti Shree Nidhi</a>
+    <nav aria-label="Sections">
+      <a href="#work">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="headline">
+      <h1 id="headline">I build <span class="box" data-label="model 0.97">the model</span><br>and <span class="box second" data-label="app 0.95">the app</span> around it.</h1>
+      <p class="lede">I'm Srishti, a final-year computer science student at RV University in Bengaluru. I build full-stack and AI/ML applications end to end: LLM agents, computer vision and NLP pipelines, and the web apps around them. I'm looking for software engineer and ML engineer roles.</p>
+      <div class="actions">
+        <a class="btn" href="Srishti_Shree_Nidhi_Resume.pdf" download>Download resume</a>
+        <a href="https://github.com/srishtissn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/srishti-shree-nidhi-109194296" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:srishtishreenidhi@gmail.com">Email</a>
+      </div>
+    </section>
+
+    <section class="block" id="work" aria-labelledby="h-work">
+      <h2 id="h-work">Projects</h2>
+      <div class="body">
+
+        <article class="project lead">
+          <header>
+            <h3>AeroVision</h3>
+            <span class="dates">Aug 2026 – Oct 2026</span>
+          </header>
+          <p>Finds defects on aircraft surfaces and answers maintenance questions about them, with every recommendation tied to a repair guide.</p>
+          <p class="stack">Python, OpenCV, YOLOv8, PyTorch, Groq Llama 3.3 70B, sentence-transformers, FAISS, Pydantic, Streamlit</p>
+          <details open>
+            <summary>What I built</summary>
+            <ul>
+              <li>A Streamlit system that detects and classifies four defect types (cracks, corrosion, dents, rivet damage) with OpenCV and an optional YOLOv8 backend, plus severity scoring, explainable heatmaps and scan-to-scan progression tracking.</li>
+              <li>A PyTorch LSTM that predicts engine remaining useful life on NASA C-MAPSS data, combined with the defect findings into one inspection record.</li>
+              <li>An LLM maintenance copilot: a RAG knowledge base of repair guidance (sentence-transformers and FAISS, filtered by defect type and severity) and a tool-calling agent on Groq Llama 3.3 70B, with a Gemini fallback, that runs the detector, severity, progression and life-prediction functions to answer questions like "is this scan worse than the last one?"</li>
+              <li>Grounded report generation: output is validated with Pydantic and checked against pipeline results, each recommendation must cite a retrieved guidance chunk, and failures fall back to a template. Retrieval quality is measured with hit@k and MRR.</li>
+            </ul>
+          </details>
+          <p class="src"><a href="https://github.com/srishtissn" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>VentureAI</h3>
+            <span class="dates">Jan 2026 – Mar 2026</span>
+          </header>
+          <p>A platform where founders and investors match by swiping, then chat in real time, with AI tools that help founders prepare their pitch.</p>
+          <p class="stack">React, Node.js, Express, MongoDB, Socket.io, FastAPI, scikit-learn, Groq Llama 3.3 70B</p>
+          <details>
+            <summary>What I built</summary>
+            <ul>
+              <li>A full-stack app with swipe-based mutual matching, real-time Socket.io chat and JWT role-based access for founders, investors and admins (7 Mongoose models, 8 API route modules).</li>
+              <li>A RAG pipeline (MongoDB retrieval and Groq Llama 3.3 70B) behind 5 GenAI tools, including pitch analysis, investor memo and market analysis, grounded in sector and competitor data.</li>
+              <li>A FastAPI microservice (TF-IDF, cosine similarity, Random Forest) for startup scoring and competitor detection: about 1.2 s per score, 0.8 s per competitor search, and mutual matches detected in under 500 ms.</li>
+            </ul>
+          </details>
+          <p class="src"><a href="https://github.com/srishtissn" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>Voice OS Lite</h3>
+            <span class="dates">Sep 2025 – Oct 2025</span>
+          </header>
+          <p>A voice assistant that runs fully offline, with no internet connection or API keys.</p>
+          <p class="stack">Python, Vosk, GPT4All (Llama 3.2 1B), text-to-speech</p>
+          <details>
+            <summary>What I built</summary>
+            <ul>
+              <li>Real-time speech-to-text with Vosk, paired with a local GPT4All model for question answering and spoken replies.</li>
+              <li>Voice-triggered actions (open Chrome, search files, read the clipboard aloud, explain screenshots) in a modular design, so new commands are easy to add.</li>
+            </ul>
+          </details>
+          <p class="src"><a href="https://github.com/srishtissn" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>Multilingual Medical Report Summarization</h3>
+            <span class="dates">Mar 2025 – Apr 2025</span>
+          </header>
+          <p>Turns PDF, image and text medical reports in different languages into short summaries and a timeline.</p>
+          <p class="stack">Python, Flask, spaCy, Tesseract OCR, MarianMT, DistilBART, ReportLab</p>
+          <details>
+            <summary>What I built</summary>
+            <ul>
+              <li>A 6-stage NLP pipeline that runs on CPU only: OCR, language detection, translation, medical entity recognition with negation handling, summarization and timeline.</li>
+              <li>Cut processing time from a 90 s cold start to 5–15 s with model warm-up and lazy loading.</li>
+            </ul>
+          </details>
+          <p class="src"><a href="https://github.com/srishtissn" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="block" id="experience" aria-labelledby="h-exp">
+      <h2 id="h-exp">Experience</h2>
+      <div class="body">
+        <div class="entry">
+          <h3>Machine Learning Intern</h3>
+          <p class="where">DHEE Centre of AI and Data Science, Jun 2024 – Jul 2024</p>
+          <ul>
+            <li>Built and trained a TensorFlow/Keras CNN (3 convolutional layers, 1.7M parameters) that classifies 38 plant-disease classes across 14 crops from about 88K leaf images, reaching 97.3% validation accuracy (97.5% precision, 97.3% recall).</li>
+            <li>Explored OpenCV preprocessing (histogram equalization, gamma correction) and built single-image disease prediction.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills" aria-labelledby="h-skills">
+      <h2 id="h-skills">Skills</h2>
+      <div class="body">
+        <dl class="skills">
+          <dt>Languages</dt><dd>Python, Java, SQL, HTML, CSS</dd>
+          <dt>Web and backend</dt><dd>React, Node.js, Express, Flask, FastAPI, REST APIs, Socket.io, JWT authentication</dd>
+          <dt>Machine learning</dt><dd>scikit-learn, TensorFlow, Keras, PyTorch, Pandas, NumPy</dd>
+          <dt>Computer vision</dt><dd>OpenCV, YOLOv8, Tesseract OCR</dd>
+          <dt>NLP and LLMs</dt><dd>LLMs, prompt engineering, RAG, LangChain, agentic AI, generative AI, spaCy, Transformers, sentence-transformers</dd>
+          <dt>Databases and tools</dt><dd>MongoDB, SQL, Git, GitHub, Git workflows, Docker, CI/CD, VS Code, Streamlit, Google Colab</dd>
+          <dt>Core CS</dt><dd>Data structures and algorithms, object-oriented programming, system design</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="block" id="education" aria-labelledby="h-edu">
+      <h2 id="h-edu">Education and certifications</h2>
+      <div class="body">
+        <div class="entry">
+          <h3>B.Tech in Computer Science and Engineering</h3>
+          <p class="where">RV University, Bengaluru, 2023 – 2027 (expected). CGPA 7.48 / 10.</p>
+        </div>
+        <div class="entry">
+          <h3>Certifications</h3>
+          <ul class="plain">
+            <li>NPTEL, Affective Computing (Elite + Gold)</li>
+            <li>NPTEL, Implementation of Human-Computer Interface (Elite)</li>
+            <li>NPTEL, Distributed Systems (Elite + Silver)</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>Competitions</h3>
+          <ul class="plain">
+            <li>HACKSTREET 3.0 Hackathon (Team Digital Dreamers): designed and built an education-accessibility prototype from concept to working demo within the hackathon timeframe.</li>
+            <li>Participated in Dark-CTF 2026 (Crack-On Community), a cybersecurity capture-the-flag competition with 200+ teams.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Contact</h2>
+      <div class="body">
+        <a class="mail" href="mailto:srishtishreenidhi@gmail.com">srishtishreenidhi@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/srishti-shree-nidhi-109194296" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/srishtissn" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="Srishti_Shree_Nidhi_Resume.pdf" download>Resume (PDF)</a></li>
+        </ul>
+        <p class="stack" style="margin-top:1.25rem">Based in Bengaluru, India. Languages: English, Hindi, basic Japanese.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year">2026</span> Srishti Shree Nidhi
+  </footer>
+</div>
+
+<script>
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
