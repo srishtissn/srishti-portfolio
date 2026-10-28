@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Srishti Shree Nidhi | Full-Stack and ML Engineer</title>
+<meta name="description" content="Portfolio of Srishti Shree Nidhi: full-stack and AI/ML projects, including an aircraft defect detection copilot, a startup-investor matching platform and offline voice AI.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✈️%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#0e1230;--bg2:#161b42;--fg:#eef1ff;--mut:#a7afd6;--line:#2a3166;--a:#8ec5ff;--b:#c3b1ff;--card:#141a3d;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media(prefers-color-scheme:light){:root{--bg:#f4f7ff;--bg2:#e8eeff;--fg:#141a3d;--mut:#4d5688;--line:#cfd7f5;--a:#2563c9;--b:#6d4ae0;--card:#fff}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(60rem 30rem at 85% -5%,color-mix(in srgb,var(--b) 22%,transparent),transparent),radial-gradient(50rem 28rem at -10% 30%,color-mix(in srgb,var(--a) 14%,transparent),transparent);background-repeat:no-repeat}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:20}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav b{font:600 1.05rem var(--serif)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem}
+nav ul a{text-decoration:none;color:var(--mut);transition:color .2s}
+nav ul a:hover{color:var(--fg)}
+@media(max-width:640px){nav ul{gap:14px;font-size:.82rem}nav b{display:none}}
+.hero{padding:84px 0 40px}
+.hero h1{font:600 clamp(2.6rem,8vw,5rem)/1.02 var(--serif);letter-spacing:-.03em;max-width:12ch}
+.hero .role{margin:22px 0 6px;font:400 clamp(1.15rem,3vw,1.5rem)/1.4 var(--serif);color:var(--mut)}
+.hero .role span{color:var(--a)}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--a);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(2) infinite}
+.hero p.sum{max-width:58ch;color:var(--mut);margin-top:14px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-3px);border-color:var(--a)}
+.btn.main{background:linear-gradient(135deg,var(--a),var(--b));color:#0e1230;border-color:transparent}
+.sky{margin-top:34px;width:100%;height:auto;display:block}
+.sky .trail{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:3 9;stroke-linecap:round;animation:flow 2.4s linear infinite}
+.sky .plane{fill:var(--a)}
+.sky circle{fill:var(--b);opacity:.7;animation:twinkle 3.2s ease-in-out infinite}
+section{padding:64px 0 8px}
+h2{font:600 clamp(1.7rem,4vw,2.3rem)/1.15 var(--serif);letter-spacing:-.02em;margin-bottom:26px}
+.proj{display:grid;grid-template-columns:200px 1fr;gap:8px 32px;padding:26px 0 26px 22px;border-top:1px solid var(--line);position:relative}
+.proj:before{content:"";position:absolute;left:0;top:26px;width:3px;height:22px;border-radius:3px;background:linear-gradient(var(--a),var(--b));transition:height .35s}
+.proj:hover:before{height:calc(100% - 52px)}
+.proj h3{font:600 1.25rem/1.25 var(--serif)}
+.proj .when{color:var(--mut);font-size:.88rem;margin-top:4px}
+.proj ul{padding-left:18px;color:var(--mut)}
+.proj li{margin-bottom:6px}
+.proj li::marker{color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;list-style:none;padding:0!important}
+.chips li,.chip{padding:3px 12px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;color:var(--fg);margin:0!important;background:var(--card);transition:transform .2s,border-color .2s}
+.chips li:hover,.chip:hover{transform:translateY(-2px);border-color:var(--b)}
+.proj a.src{display:inline-block;margin-top:8px;color:var(--a);font-weight:600;text-decoration:none;border-bottom:1px solid transparent}
+.proj a.src:hover{border-color:var(--a)}
+@media(max-width:700px){.proj{grid-template-columns:1fr}}
+.skills{display:grid;grid-template-columns:200px 1fr;gap:16px 32px}
+.skills dt{font:600 1.05rem var(--serif)}
+.skills dd{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:700px){.skills{grid-template-columns:1fr;gap:6px}.skills dd{margin-bottom:12px}}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:26px}
+.tl article{position:relative;padding-bottom:30px}
+.tl article:before{content:"";position:absolute;left:-34px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--a);transition:background .3s,transform .3s}
+.tl article:hover:before{background:var(--a);transform:scale(1.25)}
+.tl h3{font:600 1.15rem var(--serif)}
+.tl .when{color:var(--mut);font-size:.88rem}
+.tl p,.tl li{color:var(--mut);margin-top:6px}
+.tl ul{padding-left:18px}
+.tl li{margin-top:4px}
+.contact{padding-bottom:90px}
+.contact p{color:var(--mut);max-width:52ch;margin-bottom:22px}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--mut);font-size:.85rem;text-align:center}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@keyframes blink{50%{opacity:0}}
+@keyframes flow{to{stroke-dashoffset:-24}}
+@keyframes twinkle{50%{opacity:.15}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="wrap"><b>Srishti Shree Nidhi</b>
+<ul><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#journey">Experience</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<header class="wrap hero">
+<h1>Srishti Shree Nidhi</h1>
+<p class="role">I build <span id="typed">ML systems</span><i class="caret"></i></p>
+<p class="sum">Final-year B.Tech Computer Science student in Bengaluru. I build full-stack and AI apps end to end, from a MERN and RAG platform to an LLM maintenance copilot and computer vision tools. Looking for Software Engineer or ML Engineer roles.</p>
+<div class="cta">
+<a class="btn main" href="#projects">See my projects</a>
+<a class="btn" href="Srishti_Shree_Nidhi_Resume.pdf" target="_blank" rel="noopener">Open resume</a>
+<a class="btn" href="https://github.com/srishtissn" target="_blank" rel="noopener">GitHub</a>
+</div>
+<svg class="sky" viewBox="0 0 800 220" aria-hidden="true">
+<circle cx="120" cy="40" r="2" /><circle cx="330" cy="26" r="2" style="animation-delay:.8s"/><circle cx="560" cy="48" r="2" style="animation-delay:1.6s"/><circle cx="700" cy="20" r="2" style="animation-delay:2.2s"/><circle cx="450" cy="90" r="1.5" style="animation-delay:1.1s"/>
+<path id="fp" class="trail" d="M10 200 C 200 20, 460 10, 790 110"/>
+<g class="plane"><path d="M14 0 L-10 -8 L-6 0 L-10 8 Z"/><animateMotion dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#fp"/></animateMotion></g>
+</svg>
+</header>
+
+<main class="wrap">
+<section id="projects">
+<h2>Projects</h2>
+<article class="proj rv">
+<div><h3>AeroVision</h3><p class="when">Aug 2026 to Oct 2026</p></div>
+<div><p style="margin-bottom:8px">AI aircraft defect detection and maintenance copilot</p><ul>
+<li>Detects four defect types (cracks, corrosion, dents, rivet damage) with OpenCV and an optional YOLOv8 backend, then adds severity scores, heatmaps and scan-to-scan progression tracking.</li>
+<li>Trained a PyTorch LSTM for engine remaining useful life on NASA C-MAPSS data and fused it with defect findings into one inspection record.</li>
+<li>Built a tool-calling copilot (Groq Llama 3.3 70B, RAG with sentence-transformers and FAISS) whose reports are validated with Pydantic and cite retrieved guidance.</li></ul>
+<ul class="chips"><li>Python</li><li>OpenCV</li><li>YOLOv8</li><li>PyTorch</li><li>RAG</li><li>Streamlit</li></ul>
+<a class="src" href="https://github.com/srishtissn/Aerovision-" target="_blank" rel="noopener">View on GitHub</a></div>
+</article>
+<article class="proj rv">
+<div><h3>VentureAI</h3><p class="when">Jan 2026 to Mar 2026</p></div>
+<div><p style="margin-bottom:8px">Startup and investor matching platform</p><ul>
+<li>Full-stack app deployed on Render with swipe-based mutual matching, real-time Socket.io chat and JWT role-based access for founders, investors and admins.</li>
+<li>RAG pipeline behind 5 GenAI tools (pitch analysis, investor memo, market analysis and more) grounded in live sector data.</li>
+<li>FastAPI microservice for startup scoring and competitor detection: about 1.2 s per score and mutual matches in under 500 ms.</li></ul>
+<ul class="chips"><li>React</li><li>Node.js</li><li>MongoDB</li><li>Socket.io</li><li>FastAPI</li><li>scikit-learn</li></ul></div>
+</article>
+<article class="proj rv">
+<div><h3>Voice OS Lite</h3><p class="when">Sep 2025 to Oct 2025</p></div>
+<div><p style="margin-bottom:8px">Offline AI voice assistant</p><ul>
+<li>Runs with no internet or API keys: Vosk speech-to-text feeds a local GPT4All model that answers questions out loud.</li>
+<li>Voice commands open Chrome, search files, read the clipboard and explain screenshots, in a modular design that makes new commands easy to add.</li></ul>
+<ul class="chips"><li>Python</li><li>Vosk</li><li>GPT4All</li><li>Text-to-speech</li></ul></div>
+</article>
+<article class="proj rv">
+<div><h3>Medical Report Summarizer</h3><p class="when">Mar 2025 to Apr 2025</p></div>
+<div><p style="margin-bottom:8px">Multilingual medical report summarization</p><ul>
+<li>A 6-stage CPU-only NLP pipeline: OCR, language detection, translation, medical NER with negation handling, summarization and timeline.</li>
+<li>Cut processing from a 90 s cold start to 5 to 15 s with model warm-up and lazy loading.</li></ul>
+<ul class="chips"><li>Flask</li><li>spaCy</li><li>Tesseract</li><li>MarianMT</li><li>DistilBART</li></ul></div>
+</article>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<dl class="skills rv">
+<dt>Languages</dt><dd><span class="chip">Python</span><span class="chip">Java</span><span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span></dd>
+<dt>Web and backend</dt><dd><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Flask</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span><span class="chip">Socket.io</span><span class="chip">JWT</span></dd>
+<dt>Machine learning</dt><dd><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">PyTorch</span><span class="chip">Pandas</span><span class="chip">NumPy</span></dd>
+<dt>Computer vision</dt><dd><span class="chip">OpenCV</span><span class="chip">YOLOv8</span><span class="chip">Tesseract OCR</span></dd>
+<dt>NLP and LLMs</dt><dd><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">Agentic AI</span><span class="chip">Prompt engineering</span><span class="chip">spaCy</span><span class="chip">Transformers</span></dd>
+<dt>Tools</dt><dd><span class="chip">MongoDB</span><span class="chip">Git and GitHub</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Streamlit</span><span class="chip">VS Code</span></dd>
+</dl>
+</section>
+
+<section id="journey">
+<h2>Experience and education</h2>
+<div class="tl">
+<article class="rv"><h3>Machine Learning Intern, DHEE Centre of AI and Data Science</h3><p class="when">Jun 2024 to Jul 2024</p>
+<ul><li>Trained a TensorFlow/Keras CNN on about 88K leaf images across 38 plant-disease classes and 14 crops, reaching 97.3% validation accuracy.</li><li>Explored OpenCV preprocessing and built single-image disease prediction.</li></ul></article>
+<article class="rv"><h3>B.Tech in Computer Science and Engineering, RV University</h3><p class="when">2023 to 2027 (expected) | CGPA 7.48 / 10</p></article>
+<article class="rv"><h3>Hackathons, CTFs and courses</h3>
+<ul><li>HACKSTREET 3.0 hackathon (Team Digital Dreamers): built an education-accessibility prototype from concept to working demo.</li><li>Dark-CTF 2026: cybersecurity capture-the-flag with 200+ teams.</li><li>NPTEL: Affective Computing (Elite + Gold), Distributed Systems (Elite + Silver), Human-Computer Interface (Elite).</li></ul></article>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Let's talk</h2>
+<p class="rv">I'm open to Software Engineer and ML Engineer roles. Email is the fastest way to reach me.</p>
+<div class="cta rv">
+<a class="btn main" href="mailto:srishtishreenidhi@gmail.com">Email me</a>
+<a class="btn" href="https://www.linkedin.com/in/srishti-shree-nidhi-109194296" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="https://github.com/srishtissn" target="_blank" rel="noopener">GitHub</a>
+</div>
+</section>
+</main>
+<footer>© <span id="yr">2026</span> Srishti Shree Nidhi</footer>
+
+<script>
+(function(){
+var d=document,root=d.documentElement;root.className+=' js';
+var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+d.getElementById('yr').textContent=new Date().getFullYear();
+/* scroll progress */
+var bar=d.getElementById('bar');
+function prog(){var h=root.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
+addEventListener('scroll',prog,{passive:true});prog();
+/* reveal on scroll */
+var els=[].slice.call(d.querySelectorAll('.rv'));
+els.forEach(function(e,i){e.style.setProperty('--d',(i%3)*0.08+'s')});
+if('IntersectionObserver' in window&&!still){
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)});
+}else{els.forEach(function(e){e.classList.add('in')})}
+/* typed roles */
+if(still)return;
+var words=['ML systems','full-stack apps','LLM copilots','computer vision tools','things that ship'],w=0,c=0,del=false,t=d.getElementById('typed');
+function tick(){
+var s=words[w];
+t.textContent=s.slice(0,c);
+if(!del&&c<s.length){c++;setTimeout(tick,70)}
+else if(!del){del=true;setTimeout(tick,1600)}
+else if(c>0){c--;setTimeout(tick,35)}
+else{del=false;w=(w+1)%words.length;setTimeout(tick,300)}
+}
+setTimeout(function(){del=true;tick()},1800);
+})();
+</script>
+</body>
+</html>
